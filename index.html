@@ -31,7 +31,7 @@
     	//  the high temperature for the day
     	//  the low temperature for the day
     	//  the icon for the current weather.
-		$("#forecast").css("display","block");
+		
 
 
     	// You will need to update this query with the city, weather format (Celsius or Fahrenheit) and your OpenWeatherMap ID
@@ -53,8 +53,9 @@
 		let query = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=" + units + "&APPID=" +YourWeatherAppID;
         console.log("Query is :" + query)
 
-        $.getJSON(query,function(json){
+	$.getJSON(query,function(json){
             console.log(JSON.stringify(json));
+			$("#forecast").css("display","block");
 			let temp = json.main.temp; 
 			let loc = json.name;
 			let imgURL = "https://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png"
@@ -72,11 +73,12 @@
 			$("#tempImg").attr("title",title);
 
     })
-	
+}
+
 		
 
 
-    }
+    
     </script>
 </head>
 <body>
