@@ -50,14 +50,14 @@
 		}
 		
 		
-		let query = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=" + units + "&APPID=" +YourWeatherAppID;
+		let query = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=" + units + "&APPID=" +YourWeatherAppID;
         console.log("Query is :" + query)
 
         $.getJSON(query,function(json){
             console.log(JSON.stringify(json));
 			let temp = json.main.temp; 
 			let loc = json.name;
-			let imgURL = "http://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png"
+			let imgURL = "https://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png"
 			let high = json.main.temp_max;
 			let low = json.main.temp_min;
 			let alt = json.weather[0].description;
